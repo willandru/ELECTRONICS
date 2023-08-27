@@ -103,7 +103,7 @@ Distribucion dela memoria: Memori mapping: COmo esta distribuida la memoria de u
 Todo micro en general que tenga eun CORTEX M tendra la misma distribucion de memoria sin importar la amrca del microcontrolador.
 
 
-LONGITUD DE LA MEMORIA : 0x0000000    hasta   0xFFFFFFF
+LONGITUD DE LA MEMORIA : 0x0000000    hasta   0xFFFFFFF : Memoria de 4GB
 
 ROM Table
 External OOB
@@ -122,8 +122,35 @@ Vendor Specific
 Private Peripheral Bus - External
 Private Peripheral Bus - Internal
 External Devices
-External RAM
-Peripheral
-SRAM
-Code Area
+External RAM   : 1gb
+Peripheral  0.5GB
+SRAM  0.5GB
+Code Area  0.5GB
+
+
+El primero bloque de arriba para abajo nos permite acceder a la direccion de por ejemplo la flash, la memora del sistema o la RAM externa
+
+
+FLASH: Donde se almacena el codigo que general el compilador. comienza en 0x08000000, termina en longitud indeterminada, algunos fabricantes te pueden dar más o menos segun la fabricacion
+
+3 bloque es la MEMORIA DEL SISTEMA: Boot loader tieneneso; permite escribir y leer la flash sin la necesidad de una pieza de hardware de interfaz. 
+Con un boot loader no necesitamos un programador /boot loaders) 
+
+Puertos a usar UART CAM USB.
+
+4. Option Bytes: Imaginemos qu edesues de meses ya eterminaomos el producto y despues de un tiempo la competencia lo copia, copian el hardware, debemos tener cuidado de que copien nuestro software,
+si la ocmpetencia lee la memoria flash ya perdimos ya tienen nuestro codigo-. Algunos bites dentro de option bytes permite bloqeuar la lectura y NADIE ni siquiera nosotors podremos leer la memoria flash, es una capa de seguridad de la flash.
+
+SRMA: Donde se almacenan todas la variables maximo tiene 0.5GB
+
+AREA DE PHERIPERICOS: Aca se almacena los registros de configuraciond e perifrecos UART, ADC
+
+EXTERNAL RAM AND DEVICE: Permite extender las capcaidades de RAM o DEVEICE: sI EL FABRICANTE NOSDA MUY POCA DE ESTA MEMOPRIA, POIR UNOS PINES ESPECIALES VOYA APODER ACCDER A ESA MEMORIA EXTERNA. lA FLAHS TAMBIEN SI . Puedo almacenar mas codigo
+
+Ultimos 2 bloques como 1 solo: configuran registros propios del procesorador: hasta el moemnto era netamente el microcontroaldor: estos 3 bloqes son propios del procesador, un procesador dentro tambien tien optros periericos que configuran su funcionamiento que los configuro por medio de estos registros.
+
+
+
+
+
 
