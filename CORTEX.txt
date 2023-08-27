@@ -150,6 +150,9 @@ EXTERNAL RAM AND DEVICE: Permite extender las capcaidades de RAM o DEVEICE: sI E
 Ultimos 2 bloques como 1 solo: configuran registros propios del procesorador: hasta el moemnto era netamente el microcontroaldor: estos 3 bloqes son propios del procesador, un procesador dentro tambien tien optros periericos que configuran su funcionamiento que los configuro por medio de estos registros.
 
 
+----------------------------------------------------------------------------------------------------------------------------------------------------
+
+
 
 
 
