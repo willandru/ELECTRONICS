@@ -1,0 +1,5 @@
+PERIPHERAL INTERFACE CONTROLLER
+
+tODOS SON cONTROLADORES DE 8-BIT. ---> La CPU solo puede trabajar con datos de 8-bit
+
+Los PIC tienen problemas de compatibilidad de paquetes entre familias.

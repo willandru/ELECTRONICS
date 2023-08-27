@@ -1,0 +1,129 @@
+Cortex-M de ARM  <--- Chips para soluciones portables
+
+aprender --- > permite tambien controlar STM32 microcontroladores.
+
+
+
+      ARM / STM 		 |	 AVR ATEMEGA 328P
+
+- software mas sencillo
+- la arquitectura, la forma
+en como funciona este micro
+controlador es mas compleja.
+-más potente
+-codigo es facil
+-teorica es hard''
+
+CORTEXR : muy rapido (Carros de uber que se conduen solos, por la velocidad de reaccion que tienen)
+
+bAJO cONSUMO DE POTENCIA
+ST.COM
+>>productos <<micros contor y process
+
+MCUs: Micro que ya no estan soportados por ST
+
+STM32 32bit Arm Cortex MCUs (MCU es un microcontrolador, el cual tiene adentro un MPU(microprocesador), un ADC littolC uva, otros perifericos): La gama más diversa, real-tiome capabilities, very high perfomrmance, digital signal processing, low power low-voltage operation.
+
+STM32 ARM Cortex MPUSs : Un MPUS solo tiene nmucha mas ALTA VELOCIDAD DE PROCESAMIENTO
+
+STM8 8bits un procesamiento basico, son dispositivos muy baratos , para aplicaciones en masa 
+
+ARM : 
+1) ARQUETECTURA DE UNA COMPUTADORA
+2)NÚCLE DE UN PROCESADOR
+
+CORTEX M3: Formadopor modulos , formado por un core
+
+
+
+||risc 			VS						 cisc
+reduce insturcions set computer     			 	 complex instruction set computer
+tiene uinstrucciones pocas y simples de 30 a 50  	   mayor cantidad y complejas mas de 100 a 200 
+INSTRUCCION PARA SUMAR 						Esta tiene una instruccion para un factorial
+más compleja							sencilla
+
+
+procesadores son maquinas de estadoo
+
+
+cortex es tipo risc
+
+
+
+
+----REGISTROS DE LA MAYORIA DE LOS CORTEX M-------
+
+General Porpuse Registers: son 13 ivididos e los registros superiooires e inferioires, se encargan de operar directamente con nuestra variables, a+b,... asembler usa estops registros, el cpompilador decide que registros usar.
+
+Funciones especficdas de registros o especiales
+Stack Pointer Link R	egister Program Counter, Porcess Sstack pointer Main Stack ponter
+
+Special Register: FLOATING Point registers(variables de tipo flotante, son las variabnles que nos permiten utilizar numeros decimales float o double. estos sn registros buenos de tener ya que los FPU REGISTERS SON ORIENTADOS ESPECIFICAMETE A APLICACIONES MATEMATICAS
+
+FPU registers: buenos para aplicaciones matematicas pues tienen flaoting point numbers.
+
+----------------------------------------------------------------------
+uin8_t a,b,c;
+
+a=3;
+b=2;
+c=a=b;
+
+movs r3 (indica el registro que esocgi para guardar 'a'), =3  ; move "3" im register r3
+strb r3, [r7, =7] (indica offset en memoria respecto a r7, indica una posociion en memmoria llibre) ; store the content of r3 in "a"
+movs r3, =2  ; move "2" in register r3
+strb r3, [r7, =6] ; store the content of r3 in "b"
+ldrb r2, [r7, =7] ; load the content of "a" in r2
+ldrb  r3, [r7, =6] ; load the content of "b" in r3
+smulbb  r3, r2, r3  ; multiply "a" with "b" and store rsult in r3		LA ARQUITECTURA ARM tiene esta funcion
+strb r3, [r7, =5] ; store the result in "c"
+
+r7
+0x0000	0x0004	0x0008	0x000C	0x0010	0x0014	0x0018	0x001c
+#0	#1	#2	#3	#4	#5	#6	#7
+					c	b	a
+-------------------------------------------------------------------------
+acceso a memoria :strb ldrb  <-- Los unicos que pueden acceder a memoria
+
+Las otras te permitern ahacer operaciones entre registros o entre numeros,
+
+Importancia de los rtegistros de propositos generales, los registros intervienen por nosotros cuando nosotros progrmaamos en C,
+
+
+
+
+						MEMORY MAPPING
+
+	
+Todos los CORTEX M estan basados en la arquitectura ARM
+
+
+Distribucion dela memoria: Memori mapping: COmo esta distribuida la memoria de un Cortex M
+
+Todo micro en general que tenga eun CORTEX M tendra la misma distribucion de memoria sin importar la amrca del microcontrolador.
+
+
+LONGITUD DE LA MEMORIA : 0x0000000    hasta   0xFFFFFFF
+
+ROM Table
+External OOB
+ETM
+TPIU
+
+Reserved
+NVIC
+Reserved
+FPB
+DWT
+ITM
+
+
+Vendor Specific
+Private Peripheral Bus - External
+Private Peripheral Bus - Internal
+External Devices
+External RAM
+Peripheral
+SRAM
+Code Area
+
